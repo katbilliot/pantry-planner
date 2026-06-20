@@ -212,7 +212,7 @@ Keep steps concise. Do not number the steps.`;
 
         <div className="how-it-works">
           <p className="how-it-works-text">
-            Welcome to Pantry to Plate! Start by entering your daily calorie goal, then add the ingredients you already have in your fridge, freezer, and pantry. Choose between a daily or weekly meal plan and hit Generate — our AI will create personalized meals using only what you have at home. You can swap any meal you don't like, and click 📋 on any meal to view its full recipe with ingredients and steps. Want to save everything? Click <strong style={{color: "var(--accent)"}}>Open All Recipes</strong> first to load all recipes, then hit <strong style={{color: "var(--accent)"}}>Save as PDF</strong> to download your complete meal plan with recipes to your phone or computer!
+            Welcome to Pantry to Plate! Enter your daily calorie goal, add the ingredients you already have in your fridge, freezer, and pantry, and choose a daily or weekly meal plan. Click Generate and Pantry to Plate will create a personalized meal plan using the foods you already have on hand, helping you save money and reduce food waste. If you don't like a meal, simply click the refresh button next to it for a new suggestion. To view the full recipe, ingredients, nutrition information, and cooking instructions, click the 📋 icon. When you're ready to save your plan, click <strong style={{color: "var(--accent)"}}>Open All Recipes</strong> and then <strong style={{color: "var(--accent)"}}>Save as PDF</strong> to download your complete meal plan and recipe collection. 🍽️
           </p>
         </div>
 
