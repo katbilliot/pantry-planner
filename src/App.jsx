@@ -303,6 +303,11 @@ Keep steps concise. Do not number the steps.`;
         </div>
 
       </main>
+
+      <footer className="app-footer">
+        <p>© 2026 Pantry to Plate. All rights reserved.</p>
+      </footer>
+
     </div>
   );
 }
