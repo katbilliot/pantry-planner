@@ -84,6 +84,21 @@ body {
   gap: 20px;
 }
 
+/* ── How it works ── */
+.how-it-works {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: 20px 26px;
+  border: 1px solid var(--border-accent);
+}
+
+.how-it-works-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  text-align: center;
+}
+
 /* ── Cards ── */
 .card {
   background: var(--surface);
@@ -625,6 +640,18 @@ body {
   box-shadow: 0 4px 20px rgba(91,200,232,0.45);
 }
 
+.btn-open-all {
+  background: var(--surface-2);
+  color: var(--accent);
+  border: 2px solid var(--border-accent);
+  box-shadow: none;
+}
+
+.btn-open-all:hover {
+  background: var(--accent-dim);
+  color: #FFFFFF;
+}
+
 /* ── Reset section ── */
 .reset-section {
   display: flex;
@@ -714,55 +741,6 @@ body {
   color: #FFFFFF;
 }
 
-/* ── Dietitian banner ── */
-.dietitian-banner {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 24px 4px 8px;
-  text-align: center;
-}
-
-.dietitian-text {
-  font-size: 0.88rem;
-  color: #6A7A8A;
-  line-height: 1.7;
-}
-
-.dietitian-link {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-
-.dietitian-link:hover {
-  color: var(--accent-light);
-  text-decoration: underline;
-}
-.btn-open-all {
-  background: var(--surface-2);
-  color: var(--accent);
-  border: 2px solid var(--border-accent);
-  box-shadow: none;
-}
-
-.btn-open-all:hover {
-  background: var(--accent-dim);
-  color: #FFFFFF;
-}
-/* ── How it works ── */
-.how-it-works {
-  background: var(--surface);
-  border-radius: var(--r-lg);
-  padding: 20px 26px;
-  border: 1px solid var(--border-accent);
-}
-
-.how-it-works-text {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.8;
-  text-align: center;
-}
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .app-header { padding: 32px 16px 28px; }
