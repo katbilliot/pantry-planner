@@ -295,15 +295,7 @@ Keep steps concise. Do not number the steps.`;
           )}
         </div>
 
-        <div className="dietitian-banner">
-          <p className="dietitian-text">
-            Looking for a professional, compassionate dietitian to help you navigate a new meal plan, answer your nutrition questions, and provide personalized guidance along the way? Many insurance plans cover nutrition counseling with little to no out-of-pocket cost.{" "}
-            <a className="dietitian-link" href="https://www.berrystreet.com/" target="_blank" rel="noopener noreferrer">
-              Visit Berry Street
-            </a>{" "}
-            to get matched with a dietitian and get started today!
-          </p>
-        </div>
+       
       </main>
     </div>
   );
