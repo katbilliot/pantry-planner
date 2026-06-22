@@ -5,12 +5,18 @@ import "./App.css";
 
 const HEADERS = {
   "Content-Type": "application/json",
-  "x-api-key": import.meta.env.VITE_ANTHROPIC_API_KEY,
-  "anthropic-version": "2023-06-01",
-  "anthropic-dangerous-direct-browser-access": "true",
 };
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+async function callClaude(body) {
+  const response = await fetch("/api/generate", {
+    method: "POST",
+    headers: HEADERS,
+    body: JSON.stringify(body),
+  });
+  return response.json();
+}
 
 export default function App() {
   const [pantryItems, setPantryItems] = useState({ fridge: [], frozen: [], pantry: [] });
@@ -59,11 +65,7 @@ Respond ONLY with a JSON object in this exact format (no markdown, no extra text
     {"type":"Snack","name":"Meal name here","description":"Brief 1-2 sentence description","calories":300,"servingSize":"1 cup"}
   ]
 }`;
-        const response = await fetch("https://api.anthropic.com/v1/messages", {
-          method: "POST", headers: HEADERS,
-          body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 1000, messages: [{ role: "user", content: prompt }] }),
-        });
-        const data = await response.json();
+        const data = await callClaude({ model: "claude-sonnet-4-6", max_tokens: 1000, messages: [{ role: "user", content: prompt }] });
         const clean = data.content[0].text.replace(/```json|```/g, "").trim();
         const parsed = JSON.parse(clean);
         setMealPlan({ type: "daily", meals: parsed.meals });
@@ -90,11 +92,7 @@ Respond ONLY with a JSON array (no markdown, no extra text):
   {"type":"Snack","name":"Meal name","description":"Brief description","calories":300,"servingSize":"1 cup"}
 ]`;
 
-          const response = await fetch("https://api.anthropic.com/v1/messages", {
-            method: "POST", headers: HEADERS,
-            body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 600, messages: [{ role: "user", content: prompt }] }),
-          });
-          const data = await response.json();
+          const data = await callClaude({ model: "claude-sonnet-4-6", max_tokens: 600, messages: [{ role: "user", content: prompt }] });
           const clean = data.content[0].text.replace(/```json|```/g, "").trim();
           const meals = JSON.parse(clean);
           meals.forEach(m => usedMeals.push(m.name));
@@ -136,11 +134,7 @@ Respond ONLY with JSON (no markdown): {"name":"Meal name","description":"Brief d
         }));
       }
 
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST", headers: HEADERS,
-        body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 300, messages: [{ role: "user", content: prompt }] }),
-      });
-      const data = await response.json();
+      const data = await callClaude({ model: "claude-sonnet-4-6", max_tokens: 300, messages: [{ role: "user", content: prompt }] });
       const clean = data.content[0].text.replace(/```json|```/g, "").trim();
       const parsed = JSON.parse(clean);
       const newMeal = {
@@ -187,11 +181,7 @@ Respond ONLY with JSON (no markdown): {"name":"Meal name","description":"Brief d
 Respond ONLY with JSON (no markdown):
 {"prepTime":"10 mins","cookTime":"20 mins","servings":"2 servings","ingredients":["ingredient 1"],"steps":["Do this first"]}
 Keep steps concise. Do not number the steps.`;
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST", headers: HEADERS,
-      body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 600, messages: [{ role: "user", content: prompt }] }),
-    });
-    const data = await response.json();
+    const data = await callClaude({ model: "claude-sonnet-4-6", max_tokens: 600, messages: [{ role: "user", content: prompt }] });
     const clean = data.content[0].text.replace(/```json|```/g, "").trim();
     return JSON.parse(clean);
   }
